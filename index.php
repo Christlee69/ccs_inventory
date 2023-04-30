@@ -62,18 +62,16 @@ require_once('inc/header.html');
 									</div>
 									<div id="itemDetailsItemNumberSuggestionsDiv" class="customListDivWidth"></div>
 									</div>
-									<div class="form-group col-md-3">
-									<label for="itemDetailsProductID">Product ID</label>
-									<div>
-										<input class="form-control invTooltip" type="number" readonly id="itemDetailsProductID" name="itemDetailsProductID" title="This will be auto-generated when you add a new item">
-									</div>
-									</div>
-									<div class="form-group col-md-3">
-									<label for="itemDetailsSuggest">Recommendations</label>
-									<div>
-										<input class="form-control invTooltip" type="text" readonly id="itemDetailsSuggest" name="itemDetailsSuggest" title="This will be auto-generated when you add a new item">
-									</div>
-									</div>
+									<div class="form-group col-md-4">
+											<label for="itemDetailsItemBrand">Brand<span class="requiredIcon">*</span></label>
+											<select id="itemDetailsItemBrand" name="itemDetailsItemBrand" class="form-control chosenSelect">
+												<?php
+												require('dropdownbrand.php');
+												?>
+											</select>
+											
+										</div>
+									
 								</div>
 								<div class="form-row">
 									<div class="form-group col-md-3">
@@ -83,70 +81,46 @@ require_once('inc/header.html');
 									</div>
 									<div id="itemDetailsItemNameSuggestionsDiv" class="customListDivWidth"></div>
 									</div>
-									<div class="form-group col-md-3">
-									<label for="itemDetailsCategory">Category</label>
-									<div>
-										<select id="itemDetailsCategory" name="itemDetailsCategory">
-										<option value="Computer">Computer</option>
-										<option value="Tool">Tool</option>
-										<option value="Office Furniture">Office Furniture</option>
-										<option value="Office Equipment">Office Equipment</option>
-										</select>
-									</div>
-									</div>
-									<div class="form-group col-md-3">
-									<label for="itemDetailsLocation">Location</label>
-									<div>
-										<select id="itemDetailsLocation" name="itemDetailsLocation">
-										<option value="CS Laboratory">CS Laboratory</option>
-										<option value="Linux Laboratory">Linux Laboratory</option>
-										<option value="Cisco Laboratory">Cisco Laboratory</option>
-										<option value="Office">Office</option>
-										<option value="addNew">Others</option>
-										</select>
-									</div>
-									<script>
-										var dropdown = document.getElementById("itemDetailsLocation");
-										dropdown.addEventListener("change", function() {
-										var selectedOption = dropdown.options[dropdown.selectedIndex];
-										if (selectedOption.value === "addNew") {
-											var newOption = prompt("Enter a new location:");
-											if (newOption) {
-											var optionElement = document.createElement("option");
-											optionElement.value = newOption;
-											optionElement.text = newOption;
-											dropdown.add(optionElement);
-											dropdown.value = newOption;
-											} else {
-											dropdown.value = "";
-											}
-										}
-										});
-									</script>
-									</div>
+									<div class="form-group col-md-4">
+											<label for="itemDetailsCategory">Category<span class="requiredIcon">*</span></label>
+											<select id="itemDetailsCategory" name="itemDetailsCategory" class="form-control chosenSelect">
+												<?php
+												require('dropdowncategory.php');
+												?>
+											</select>
+										</div>
+									
 								</div>
 										<div class="form-row">
 									
-												<div class="form-group col-md-6" style="display:inline-block">
+												<div class="form-group col-md-3" style="display:inline-block">
 													<!-- <label for="itemDetailsDescription">Description</label> -->
 													<textarea rows="4" class="form-control" placeholder="Item description" name="itemDetailsDescription" id="itemDetailsDescription"></textarea>
 												</div>
+												<div class="form-group col-md-4">
+											<label for="itemDetailsLocation">Location<span class="requiredIcon">*</span></label>
+											<select id="itemDetailsLocation" name="itemDetailsLocation" class="form-control chosenSelect">
+												<?php
+												require('dropdownlocation.php');
+												?>
+											</select>
+										</div>
 
 											</div>
 
 											<div class="form-row">
-												<div class="form-group col-md-2">
+												<div class="form-group col-md-3">
 													<label for="itemDetailsQuantity">Quantity<span class="requiredIcon">*</span></label>
 													<input type="number" class="form-control" value="0" name="itemDetailsQuantity" id="itemDetailsQuantity">
 												</div>
 
-												<div class="form-group col-md-2">
+												<div class="form-group col-md-3">
 													<label for="itemDetailsUnitPrice">Unit Price<span class="requiredIcon">*</span></label>
 													<input type="text" class="form-control" value="0" name="itemDetailsUnitPrice" id="itemDetailsUnitPrice">
 												</div>
 
 
-												<div class="form-group col-md-2">
+												<div class="form-group col-md-3">
 													<label for="itemDetailsDate">Date<span ></span></label>
 													<input type="text" class="form-control" id="itemDetailsDate" name="itemDetailsDate" readonly>
 												</div>
@@ -163,10 +137,7 @@ require_once('inc/header.html');
 													document.getElementById("itemDetailsDate").value = dateString;
 												</script>
 
-												<div class="form-group col-md-2">
-													<label for="itemDetailsTotalStock">Total Stock</label>
-													<input type="text" class="form-control" name="itemDetailsTotalStock" id="itemDetailsTotalStock" readonly>
-												</div>
+												
 												<div class="form-group col-md-3">
 													<div id="imageContainer"></div>
 												</div>
@@ -302,7 +273,7 @@ require_once('inc/header.html');
 										</div>
 										<div class="form-group col-md-2">
 											<label for="vendorDetailsStatus">Status</label>
-											<select id="vendorDetailsStatus" name="vendorDetailsStatus">
+											<select id="vendorDetailsStatus" name="vendorDetailsStatus" class="form-control chosenSelect">
 												<option value="Computer">Active</option>
 												<option value="Tool">Disabled</option>
 											</select>
@@ -341,87 +312,11 @@ require_once('inc/header.html');
 											<input type="text" class="form-control" id="vendorDetailsVendorCity" name="vendorDetailsVendorCity">
 										</div>
 										<div class="form-group col-md-4">
-											<label for="vendorDetailsVendorDistrict">Province</label>
-											<select id="vendorDetailsVendorDistrict" name="vendorDetailsVendorDistrict">
-												<option value="Abra">Abra</option>
-												<option value="Agusan del Norte">Agusan del Norte</option>
-												<option value="Agusan del Sur">Agusan del Sur</option>
-												<option value="Aklan">Aklan</option>
-												<option value="Albay">Albay</option>
-												<option value="Antique">Antique</option>
-												<option value="Apayao">Apayao</option>
-												<option value="Aurora">Aurora</option>
-												<option value="Basilan">Basilan</option>
-												<option value="Bataan">Bataan</option>
-												<option value="Batanes">Batanes</option>
-												<option value="Batangas">Batangas</option>
-												<option value="Biliran">Biliran</option>
-												<option value="Benguet">Benguet</option>
-												<option value="Bohol">Bohol</option>
-												<option value="Bukidnon">Bukidnon</option>
-												<option value="Bulacan">Bulacan</option>
-												<option value="Cagayan">Cagayan</option>
-												<option value="Camarines Norte">Camarines Norte</option>
-												<option value="Camarines Sur">Camarines Sur</option>
-												<option value="Camiguin">Camiguin</option>
-												<option value="Capiz">Capiz</option>
-												<option value="Catanduanes">Catanduanes</option>
-												<option value="Cavite">Cavite</option>
-												<option value="Cebu">Cebu</option>
-												<option value="Compostela">Compostela</option>
-												<option value="Davao del Norte">Davao del Norte</option>
-												<option value="Davao del Sur">Davao del Sur</option>
-												<option value="Davao Oriental">Davao Oriental</option>
-												<option value="Eastern Samar">Eastern Samar</option>
-												<option value="Guimaras">Guimaras</option>
-												<option value="Ifugao">Ifugao</option>
-												<option value="Ilocos Norte">Ilocos Norte</option>
-												<option value="Ilocos Sur">Ilocos Sur</option>
-												<option value="Iloilo">Iloilo</option>
-												<option value="Isabela">Isabela</option>
-												<option value="Kalinga">Kalinga</option>
-												<option value="Laguna">Laguna</option>
-												<option value="Lanao del Norte">Lanao del Norte</option>
-												<option value="Lanao del Sur">Lanao del Sur</option>
-												<option value="La Union">La Union</option>
-												<option value="Leyte">Leyte</option>
-												<option value="Maguindanao">Maguindanao</option>
-												<option value="Marinduque">Marinduque</option>
-												<option value="Masbate">Masbate</option>
-												<option value="Mindoro Occidental">Mindoro Occidental</option>
-												<option value="Mindoro Oriental">Mindoro Oriental</option>
-												<option value="Misamis Occidental">Misamis Occidental</option>
-												<option value="Misamis Oriental">Misamis Oriental</option>
-												<option value="Mountain Province">Mountain Province</option>
-												<option value="Negros Occidental">Negros Occidental</option>
-												<option value="Negros Oriental">Negros Oriental</option>
-												<option value="North Cotabato">North Cotabato</option>
-												<option value="Northern Samar">Northern Samar</option>
-												<option value="Nueva Ecija">Nueva Ecija</option>
-												<option value="Nueva Vizcaya">Nueva Vizcaya</option>
-												<option value="Palawan">Palawan</option>
-												<option value="Pampanga">Pampanga</option>
-												<option value="Pangasinan">Pangasinan</option>
-												<option value="Quezon">Quezon</option>
-												<option value="Quirino">Quirino</option>
-												<option value="Rizal">Rizal</option>
-												<option value="Romblon">Romblon</option>
-												<option value="Samar">Samar</option>
-												<option value="Sarangani">Sarangani</option>
-												<option value="Siquijor">Siquijor</option>
-												<option value="Sorsogon">Sorsogon</option>
-												<option value="South Cotabato">South Cotabato</option>
-												<option value="Southern Leyte">Southern Leyte</option>
-												<option value="Sultan Kudarat">Sultan Kudarat</option>
-												<option value="Sulu">Sulu</option>
-												<option value="Surigao del Norte">Surigao del Norte</option>
-												<option value="Surigao del Sur">Surigao del Sur</option>
-												<option value="Tarlac">Tarlac</option>
-												<option value="Tawi-Tawi">Tawi-Tawi</option>
-												<option value="Zambales">Zambales</option>
-												<option value="Zamboanga del Norte">Zamboanga del Norte</option>
-												<option value="Zamboanga del Sur">Zamboanga del Sur</option>
-												<option value="Zamboanga Sibugay">Zamboanga Sibugay</option>
+											<label for="itemDetailsLocation">Location<span class="requiredIcon">*</span></label>
+											<select id="itemDetailsLocation" name="itemDetailsLocation" class="form-control chosenSelect">
+												<?php
+												require('dropdownprovince.php');
+												?>
 											</select>
 										</div>
 									</div>

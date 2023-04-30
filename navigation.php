@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
       <img id="top" src="images/Loginlogo.png" style="border-radius:10px; margin-right: 10px; width: 60px; height:60px; filter: invert(100%);"/>
-        <a class="navbar-brand" href="<?php echo ROOT_URL; ?>">CCS Inventory System</a>
+        <a class="navbar-brand" href="<?php echo ROOT_URL; ?>">CCS Inventory Management System</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

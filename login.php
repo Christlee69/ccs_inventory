@@ -58,35 +58,7 @@ require_once('inc/header.html');
 
 
 						
-						<form action="" class="form">
-						<div id="registerMessage"></div>
-						
-						<div class="form-group">
-							<label for="registerFullName">Name<span class="requiredIcon">*</span></label>
-							<input type="text" class="form-control" id="registerFullName" name="registerFullName">
-						</div>
-						
-						<div class="form-group">
-							<label for="registerUsername">Username<span class="requiredIcon">*</span></label>
-							<input type="email" class="form-control" id="registerUsername" name="registerUsername" autocomplete="on">
-						</div>
-						
-						<div class="form-group">
-							<label for="registerPassword1">Password<span class="requiredIcon">*</span></label>
-							<input type="password" class="form-control" id="registerPassword1" name="registerPassword1">
-						</div>
-						
-						<div class="form-group">
-							<label for="registerPassword2">Re-enter password<span class="requiredIcon">*</span></label>
-							<input type="password" class="form-control" id="registerPassword2" name="registerPassword2">
-						</div>
-						<div class="d-flex justify-content-between align-items-center">
-						<a id="login" href="login.php" class="btn btn-primary">Login</a>
-						<button type="button" id="register" class="btn btn-success">Register</button>
-						<a href="login.php?action=resetPassword" class="btn btn-warning">Reset Password</a>
-						<button type="reset" class="btn">Clear</button>
-						</div>
-					</form>
+					
 
 
 
@@ -121,7 +93,7 @@ require_once('inc/header.html');
 								</div>
 								<div class="d-flex justify-content-between align-items-center">
 								<a id="login" href="login.php" class="btn btn-primary">Login</a>
-								<a href="login.php?action=register" class="btn btn-success">Register</a>
+								
 								<button type="button" id="resetPasswordButton" class="btn btn-warning">Reset Password</button>
 								<button type="reset" class="btn">Clear</button>
 								</div>
@@ -156,8 +128,8 @@ require_once('inc/header.html');
 							<input type="password" class="form-control" id="loginPassword" name="loginPassword">
 						</div>
 						<div class="d-flex justify-content-between align-items-center">
-						<button type="button" id="login" class="btn btn-primary">Login</button>
-						<a href="login.php?action=register" class="btn btn-success">Register</a>
+						<button type="button" id="login" class="btn btn-success">Login</button>
+						<a href="guestpage.php" class="btn btn-primary">Login as guest</a>
 						<a href="login.php?action=resetPassword" class="btn btn-warning">Reset Password</a>
 						<button type="reset" class="btn">Clear</button>
 						</div>

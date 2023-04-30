@@ -1,0 +1,31 @@
+<div class="form-group col-md-2">
+									<label for="itemDetailsItemBrand">Brand</label>
+									
+									<div>
+										<select id="itemDetailsItemBrand" name="itemDetailsItemBrand" style="padding: 10px; border-radius: 5px; background-color: #f2f2f2; color: #333;">
+										<option value="Apple">Apple</option>
+										<option value="Dell">Dell</option>
+										<option value="Lenovo">Lenovo</option>
+										<option value="HP">HP</option>
+										<option value="addNewbrand">Others</option>
+										</select>
+									</div>
+									<script>
+										var dropdown1 = document.getElementById("itemDetailsItemBrand");
+										dropdown1.addEventListener("change", function() {
+										var selectedOption1 = dropdown1.options[dropdown1.selectedIndex];
+										if (selectedOption1.value === "addNewbrand") {
+											var newOption1 = prompt("Enter a brand:");
+											if (newOption1) {
+											var optionElement1 = document.createElement("option");
+											optionElement1.value = newOption1;
+											optionElement1.text = newOption1;
+											dropdown1.add(optionElement1);
+											dropdown1.value = newOption1;
+											} else {
+											dropdown1.value = "";
+											}
+										}
+										});
+									</script>
+									</div>

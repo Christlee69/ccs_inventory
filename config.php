@@ -1,6 +1,6 @@
 <?php
 
-    $mysqli = new mysqli("localhost","root","","php_gexton");
+    $mysqli = new mysqli("localhost","root","root","php_gexton");
 
     if($mysqli->connect_error)
     {

@@ -94,6 +94,33 @@ require 'dbconnection.php';
                                     <input type="hidden" name="productID" value="<?php echo $productID; ?>">
                                     <label for="itemDetailsItemName">Item Name<span class="requiredIcon">*</span></label>
                                     <input type="text" class="form-control" name="itemDetailsItemName" id="itemDetailsItemName" autocomplete="off" value="<?php echo $user['itemName']; ?>">
+                                    <select id="itemDetailsItemBrand" name="itemDetailsItemBrand">
+                                        <option value="Apple" <?php if ($user['brand'] == 'Apple') echo 'selected="selected"'; ?>>Apple</option>
+                                        <option value="Dell" <?php if ($user['brand'] == 'Dell') echo 'selected="selected"'; ?>>Dell</option>
+                                        <option value="Lenovo" <?php if ($user['brand'] == 'Lenovo') echo 'selected="selected"'; ?>>Lenovo</option>
+                                        <option value="HP" <?php if ($user['brand'] == 'HP') echo 'selected="selected"'; ?>>HP</option>
+                                        <option value="addNew">Others</option>
+										</select>
+									
+									<script>
+										var dropdown = document.getElementById("itemDetailsItemBrand");
+										dropdown.addEventListener("change", function() {
+										var selectedOption = dropdown.options[dropdown.selectedIndex];
+										if (selectedOption.value === "addNew") {
+											var newOption = prompt("Enter a brand:");
+											if (newOption) {
+											var optionElement = document.createElement("option");
+											optionElement.value = newOption;
+											optionElement.text = newOption;
+											dropdown.add(optionElement);
+											dropdown.value = newOption;
+											} else {
+											dropdown.value = "";
+											}
+										}
+										});
+									</script>
+                                    </select>
                                     <label for="itemDetailsCategory">Category<span class="requiredIcon">*</span></label>
                                     <select id="itemDetailsCategory" name="itemDetailsCategory">
                                         <option value="Computer" <?php if ($user['category'] == 'Computer') echo 'selected="selected"'; ?>>Computer</option>
